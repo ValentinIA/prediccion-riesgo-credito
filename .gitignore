@@ -1,0 +1,57 @@
+\# Archivos del sistema
+
+desktop.ini
+
+Thumbs.db
+
+\# Entornos
+
+.env
+
+.venv/
+
+venv/
+
+\_\_pycache\_\_/
+
+\*.py\[cod]
+
+\# Jupyter
+
+.ipynb\_checkpoints/
+
+.notebooks/
+
+\# Datos
+
+datos/
+
+\*.csv
+
+\*.xlsx
+
+\*.parquet
+
+\*.feather
+
+\*.db
+
+\*.sqlite
+
+\*.duckdb
+
+\# Entregables
+
+entregables/
+
+reports/
+
+\# Archivos de log
+
+\*.log
+
+\# Configuración de IDE
+
+.vscode/
+
+.idea/
