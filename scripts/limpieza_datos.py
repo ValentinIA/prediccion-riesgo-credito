@@ -22,21 +22,17 @@ def limpieza_datos(df):
     df_clean = df_clean.drop_duplicates()
 
     # 3. Eliminar registros con nulos en tasa_interes
-    df_clean = df_clean.dropna(subset=['tasa_interes'])
+    df_clean = df_clean.dropna()
 
     # 4. Definir máscaras booleanas para MANTENER los datos válidos
-    es_ingreso_valido = df_clean['ingreso'] <= 140780
-    es_vivienda_valida = ~df_clean['propiedad_vivienda'].isin(['OTHER', 'MORTGAGE'])
-    es_intencion_valida = df_clean['intencion_prestamo'] != 'HOMEIMPROVEMENT'
+    es_valida = (df_clean['duracion_empleo'] < 60) & (df_clean['edad'] < 100)
 
     # Aplicar todos los filtros en una sola operación
-    df_clean = df_clean[es_ingreso_valido & es_vivienda_valida & es_intencion_valida]
+    df_clean = df_clean[es_valida]
 
     # 5. Eliminar columnas innecesarias
     cols_a_eliminar = [
-        'duracion_credito',
         'calificacion_prestamo',
-        'duracion_empleo',
         'incumplimiento_historial',
         'edad',
         'monto_prestamo'
